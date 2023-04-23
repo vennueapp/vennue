@@ -1,0 +1,22 @@
+{
+    "venues": [
+        {
+            "name": "James",
+            "description": "He's James",
+            "location": "James' House",
+            "imagePath": "https://avatars.githubusercontent.com/u/49141566?v=4"
+        },
+        {
+            "name": "Alec",
+            "description": "He's Alec",
+            "location": "Alec's House",
+            "imagePath": "https://avatars.githubusercontent.com/u/27219575?v=4"
+        },
+        {
+            "name": "Sean",
+            "description": "He's Sean",
+            "location": "Sean's House",
+            "imagePath": "https://avatars.githubusercontent.com/u/44223556?v=4"
+        }  
+    ]
+}
