@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vennue/pages/hub_page.dart';
 
 import '../bloc/locations_bloc.dart';
 import '../bloc/venues_bloc.dart';
@@ -44,42 +45,24 @@ class _VenuesDisplayState extends State<VenuesDisplay> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         // TODO: Make these separate Widgets rather than helper functions
-        _locationsSection(),
+        _locationsSection(context),
         _venuesSection(),
       ],
     );
   }
 }
 
-_locationsSection() {
-  return BlocBuilder<LocationsBloc, LocationsState>(builder: (context, state) {
-    // TODO: Maybe move this logic deeper
-    switch (state.status) {
-      case LocationsStatus.initial:
-        return const Center(child: CircularProgressIndicator());
-      case LocationsStatus.failure:
-        return const Text("Uh Oh, something went wrong");
-      case LocationsStatus.success:
-        return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Choose a Location',
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
-              // TODO: Make this actually do something lol... VenueEvent to be sent with FetchVenues
-              DropdownButton(
-                items: locationsList(state.locations),
-                onChanged: ((value) {}),
-              ),
-            ],
-          ),
-        );
-    }
-  });
+_locationsSection(BuildContext context) {
+  return TextButton(
+    onPressed: () {
+      showModalBottomSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return const HubPage();
+          });
+    },
+    child: const Text("Hubs"),
+  );
 }
 
 _venuesSection() {

@@ -11,8 +11,10 @@ part 'locations_event.dart';
 part 'locations_state.dart';
 
 class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
-  LocationsBloc() : super(const LocationsState()) {
+  LocationsBloc() : super(LocationsState()) {
     on<FetchLocations>(_onGetLocations);
+    on<SelectLocation>(_onSelectLocation);
+    on<DeselectLocation>(_onDeselectLocation);
   }
 
   _onGetLocations(LocationsEvent event, Emitter<LocationsState> emit) async {
@@ -28,10 +30,25 @@ class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
         locationsList.add(Location.fromMap(location));
       }
       emit(state.copyWith(
-          status: LocationsStatus.success, locations: locationsList));
+          status: LocationsStatus.success, allLocations: locationsList));
     } else {
       emit(state.copyWith(status: LocationsStatus.failure));
       throw Exception('Failed to load locations');
     }
+  }
+
+  // TODO: Look into both of these more, consider alphabetical ordering? Maybe better in order of selection idk
+  _onSelectLocation(SelectLocation event, Emitter<LocationsState> emit) {
+    // TODO: Investigate if there's a better way for availableLocations to be updated
+    var selectedLocations = state.selectedLocations.toList();
+    selectedLocations.add(event.location);
+    emit(state.copyWith(selectedLocations: selectedLocations));
+  }
+
+  _onDeselectLocation(DeselectLocation event, Emitter<LocationsState> emit) {
+    var selectedLocations = state.selectedLocations.toList();
+    // TODO: Consider error checking here
+    selectedLocations.remove(event.location);
+    emit(state.copyWith(selectedLocations: selectedLocations));
   }
 }
