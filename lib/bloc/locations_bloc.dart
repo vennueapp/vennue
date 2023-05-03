@@ -37,9 +37,7 @@ class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
     }
   }
 
-  // TODO: Look into both of these more, consider alphabetical ordering? Maybe better in order of selection idk
   _onSelectLocation(SelectLocation event, Emitter<LocationsState> emit) {
-    // TODO: Investigate if there's a better way for availableLocations to be updated
     var selectedLocations = state.selectedLocations.toList();
     selectedLocations.add(event.location);
     emit(state.copyWith(selectedLocations: selectedLocations));
@@ -47,7 +45,6 @@ class LocationsBloc extends Bloc<LocationsEvent, LocationsState> {
 
   _onDeselectLocation(DeselectLocation event, Emitter<LocationsState> emit) {
     var selectedLocations = state.selectedLocations.toList();
-    // TODO: Consider error checking here
     selectedLocations.remove(event.location);
     emit(state.copyWith(selectedLocations: selectedLocations));
   }
