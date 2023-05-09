@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-
 /// Represents a venue users can choose to visit
 class Venue {
   final String name;

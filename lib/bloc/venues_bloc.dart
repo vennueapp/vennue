@@ -5,7 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart';
 
-import '../models/venue.dart';
+import 'package:vennue/models/location.dart';
+import 'package:vennue/models/venue.dart';
 
 part 'venues_event.dart';
 part 'venues_state.dart';
@@ -15,7 +16,10 @@ class VenuesBloc extends Bloc<VenuesEvent, VenuesState> {
     on<FetchVenues>(_onGetVenues);
   }
 
-  _onGetVenues(VenuesEvent event, Emitter<VenuesState> emit) async {
+  _onGetVenues(FetchVenues event, Emitter<VenuesState> emit) async {
+    // TODO: Decide if separate logic for no locations and a location list should go here or be handled by the API
+    // Accessible via event.location
+
     //final response = await get(Uri.parse('venues.json'));
     final response = await rootBundle.loadString('assets/venues.json');
 
