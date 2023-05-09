@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart';
 
-import '../models/location.dart';
+import 'package:vennue/models/location.dart';
 
 part 'locations_event.dart';
 part 'locations_state.dart';

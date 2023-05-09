@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 import 'package:http/http.dart';
 
-import '../models/location.dart';
-import '../models/venue.dart';
+import 'package:vennue/models/location.dart';
+import 'package:vennue/models/venue.dart';
 
 part 'venues_event.dart';
 part 'venues_state.dart';

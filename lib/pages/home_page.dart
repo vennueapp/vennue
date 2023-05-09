@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vennue/pages/hub_page.dart';
 
-import '../bloc/locations_bloc.dart';
-import '../bloc/venues_bloc.dart';
-import '../models/location.dart';
-import '../models/venue.dart';
+import 'package:vennue/bloc/locations_bloc.dart';
+import 'package:vennue/bloc/venues_bloc.dart';
+import 'package:vennue/models/location.dart';
+import 'package:vennue/models/venue.dart';
+import 'package:vennue/pages/hub_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.title});

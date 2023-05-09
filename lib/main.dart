@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bloc/locations_bloc.dart';
-import 'bloc/venues_bloc.dart';
-import 'pages/home_page.dart';
+import 'package:vennue/bloc/locations_bloc.dart';
+import 'package:vennue/bloc/venues_bloc.dart';
+import 'package:vennue/pages/home_page.dart';
 
 void main() {
   runApp(const Vennue());
